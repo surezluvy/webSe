@@ -33,4 +33,12 @@ class AdminController extends Controller
     function dashboard(){
         echo 'berhasil login';
     }
+
+    function test(){
+        return view('test.index');
+    }
+
+    function kirim(Request $request){
+        dd($request->test);
+    }
 }

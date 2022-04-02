@@ -15,22 +15,30 @@ class MainTest extends TestCase
      *
      * @return void
      */
-    public function test_user_visit_admin()
-    {
-        $user = 'admin';
-        User::factory()->create([
-            'email'    => 'admin@admin.com',
-            'password' => bcrypt('secret'),
-        ]);
+    // public function test_admin_login_and_visit_admin_dashboard()
+    // {
+    //     $user = 'admin';
+    //     User::factory()->create([
+    //         'email'    => 'admin@admin.com',
+    //         'password' => bcrypt('secret'),
+    //     ]);
 
-        $this->visit('/'.$user);
-        $this->seePageIs($user.'/login');
+    //     $this->visit('/'.$user);
+    //     $this->seePageIs($user.'/login');
 
-        $this->submitForm('login', [
-            'email' => 'admin@admin.com',
-            'password' => 'secret'
-        ]);
+    //     $this->submitForm('login', [
+    //         'email' => 'admin@admin.com',
+    //         'password' => 'secret'
+    //     ]);
 
-        $this->seePageIs($user);
+    //     $this->seePageIs($user);
+    // }
+
+    public function test_admin_can_create_categories(){
+        $this->visit('/admin/test');
+
+        $this->see('Nestable');
+        // $this->dump();
+        $this->submitForm('Kirim');
     }
 }
